@@ -1,4 +1,4 @@
-// File: app/share/route.ts
+// app/share/route.ts
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
@@ -6,7 +6,10 @@ export async function POST(req: NextRequest) {
   const url = form.get("url") as string;
   const text = form.get("text") as string;
 
-  return NextResponse.redirect(
-    `/?url=${encodeURIComponent(url || text || "")}`
-  );
+  const sharedUrl = url || text;
+  if (!sharedUrl) {
+    return NextResponse.redirect("/");
+  }
+
+  return NextResponse.redirect(`/?url=${encodeURIComponent(sharedUrl)}`);
 }
