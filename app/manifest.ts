@@ -1,4 +1,4 @@
-import type { MetadataRoute } from "next"
+import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
@@ -7,6 +7,7 @@ export default function manifest(): MetadataRoute.Manifest {
     description: "Download reels from Instagram, YouTube, and Facebook",
     start_url: "/",
     display: "standalone",
+    scope: "/",
     background_color: "#ffffff",
     theme_color: "#000000",
     icons: [
@@ -30,5 +31,5 @@ export default function manifest(): MetadataRoute.Manifest {
         url: "url",
       },
     },
-  }
+  };
 }
